@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – ClaroVenta</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            primary: { DEFAULT: '#0F766E', hover: '#0D9488', light: '#CCFBF1' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <i data-lucide="trending-up" class="w-4 h-4"></i>
+        </div>
+        ClaroVenta
+      </a>
+
+      <div class="flex items-center gap-4">
+        <a href="upload.html" class="btn-ghost text-sm flex items-center gap-1.5">
+          <i data-lucide="upload" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Cargar datos</span>
+        </a>
+        <div class="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center text-sm font-medium text-slate-600">
+          JP
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-8">
+    <!-- Title + filter -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <div>
+        <h1 class="text-2xl font-bold">Resumen de tu negocio</h1>
+        <p class="text-slate-500 text-sm mt-1">Últimos 30 días</p>
+      </div>
+      <select class="bg-white border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20">
+        <option>Últimos 30 días</option>
+        <option>Últimos 90 días</option>
+        <option>Este año</option>
+      </select>
+    </div>
+
+    <!-- Metrics -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div class="card card-metric">
+        <p class="label">Utilidad total</p>
+        <p class="value">$48.250</p>
+        <p class="text-xs text-emerald-600 mt-2 flex items-center gap-1">
+          <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> +12% vs mes anterior
+        </p>
+      </div>
+      <div class="card card-metric">
+        <p class="label">Margen promedio</p>
+        <p class="value">34%</p>
+        <p class="text-xs text-slate-500 mt-2">Saludable</p>
+      </div>
+      <div class="card card-metric">
+        <p class="label">Productos bien</p>
+        <p class="value text-emerald-600">5</p>
+        <p class="text-xs text-slate-500 mt-2">de 8 productos</p>
+      </div>
+      <div class="card card-metric">
+        <p class="label">Requieren atención</p>
+        <p class="value text-amber-600">3</p>
+        <p class="text-xs text-slate-500 mt-2">Revisa recomendaciones</p>
+      </div>
+    </div>
+
+    <!-- Alerts -->
+    <div class="space-y-3 mb-8">
+      <div class="alert alert-success">
+        <div class="alert-icon bg-emerald-500">
+          <i data-lucide="check" class="w-3 h-3 text-white"></i>
+        </div>
+        <div>
+          <p class="font-medium text-emerald-900">3 productos están rindiendo muy bien</p>
+          <p class="text-sm text-emerald-700 mt-0.5">Café Premium, Té Verde y Miel artesanal.</p>
+        </div>
+      </div>
+      <div class="alert alert-warning">
+        <div class="alert-icon bg-amber-500">
+          <i data-lucide="alert-triangle" class="w-3 h-3 text-white"></i>
+        </div>
+        <div>
+          <p class="font-medium text-amber-900">2 productos bajaron sus ventas</p>
+          <p class="text-sm text-amber-700 mt-0.5">Galletas artesanales (−18%) y Jabón natural (−11%).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8">
+      <!-- Recommendations -->
+      <div class="lg:col-span-1">
+        <h2 class="font-semibold text-lg mb-4">Recomendaciones prioritarias</h2>
+        <div class="space-y-3">
+          <div class="rec-card">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="priority priority-1">1</span>
+              <span class="text-xs text-slate-500">Alta prioridad</span>
+            </div>
+            <p class="font-medium">Sube el precio del Jabón natural</p>
+            <p class="text-sm text-slate-600 mt-1">Puedes subir $1.50 y ganar $420 más al mes.</p>
+            <a href="product.html" class="mt-3 inline-block text-sm font-medium text-primary hover:underline">Ver detalle →</a>
+          </div>
+          <div class="rec-card">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="priority priority-2">2</span>
+              <span class="text-xs text-slate-500">Media</span>
+            </div>
+            <p class="font-medium">Promociona las Galletas</p>
+            <p class="text-sm text-slate-600 mt-1">Las ventas bajaron. Prueba un pack 3x2.</p>
+            <a href="product.html" class="mt-3 inline-block text-sm font-medium text-primary hover:underline">Ver detalle →</a>
+          </div>
+          <div class="rec-card">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="priority priority-3">3</span>
+              <span class="text-xs text-slate-500">Baja</span>
+            </div>
+            <p class="font-medium">Mantén el precio del Café Premium</p>
+            <p class="text-sm text-slate-600 mt-1">Está rindiendo excelente. No lo toques por ahora.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products table -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-semibold text-lg">Tus productos</h2>
+          <a href="upload.html" class="text-sm text-primary font-medium flex items-center gap-1">
+            <i data-lucide="plus" class="w-4 h-4"></i> Agregar
+          </a>
+        </div>
+        <div class="table-wrapper">
+          <div class="overflow-x-auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Unidades</th>
+                  <th>Margen</th>
+                  <th>Estado</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="font-medium">Café Premium</td>
+                  <td>142</td>
+                  <td>48%</td>
+                  <td><span class="badge badge-success">Bien</span></td>
+                  <td class="text-right"><a href="product.html" class="text-primary font-medium text-sm">Ver</a></td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Té Verde</td>
+                  <td>98</td>
+                  <td>41%</td>
+                  <td><span class="badge badge-success">Bien</span></td>
+                  <td class="text-right"><a href="product.html" class="text-primary font-medium text-sm">Ver</a></td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Galletas artesanales</td>
+                  <td>89</td>
+                  <td>29%</td>
+                  <td><span class="badge badge-warning">Atención</span></td>
+                  <td class="text-right"><a href="product.html" class="text-primary font-medium text-sm">Ver</a></td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Jabón natural</td>
+                  <td>56</td>
+                  <td>12%</td>
+                  <td><span class="badge badge-danger">Crítico</span></td>
+                  <td class="text-right"><a href="product.html" class="text-primary font-medium text-sm">Ver</a></td>
+                </tr>
+                <tr>
+                  <td class="font-medium">Miel artesanal</td>
+                  <td>67</td>
+                  <td>52%</td>
+                  <td><span class="badge badge-success">Bien</span></td>
+                  <td class="text-right"><a href="product.html" class="text-primary font-medium text-sm">Ver</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
